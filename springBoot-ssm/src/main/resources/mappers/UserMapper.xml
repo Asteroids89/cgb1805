@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，唯一特性 -->
+<mapper namespace="cn.tedu.mapper.UserMapper">
+	<select id="find" resultType="User">
+		select id,name,birthday,address from user
+	</select>
+	<select id="findById" resultType="User">
+		select id,name,birthday,address from user where id= #{id}
+	</select>
+	<insert id="insert" parameterType="User">
+	insert into user (name,address,birthday) values (#{name},#{address},#{birthday})
+	</insert>
+	<update id="update" parameterType="User">
+	update user set name=#{name},address=#{address},birthday=#{birthday} where id=#{id}
+	</update>
+	<delete id="delete">
+	delete from user where id = #{id}
+	</delete>
+</mapper>
